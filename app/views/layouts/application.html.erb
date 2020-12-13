@@ -33,15 +33,20 @@
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
+          <!-- <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </form> -->
+          <% if current_user.nil? %>
+	          <%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
+          <% else %>
+	          <%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+          <% end %>
         </div>
       </nav>
     </header>
 
-    <main role="main">
+    <main role="main" class="container">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>

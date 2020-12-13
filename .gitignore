@@ -42,3 +42,4 @@ yarn-debug.log*
 .env
 bin/
 tmp/
+.irb_history
